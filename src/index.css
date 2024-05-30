@@ -1,15 +1,10 @@
 @font-face {
-  font-family: 'Glory';
-  src: local('Glory'), url(./assets/fonts/Glory-Regular.ttf) format('ttf');
+  font-family: 'Glory-Regular';
+  src: local('Glory-Regular'), url(./assets/fonts/Glory-Regular.ttf) format('ttf');
 }
 
-:root {
-  margin: 0;
-  padding: 0;
+* {
   box-sizing: border-box;
+  font-family: 'Glory-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;
+   height: 100vh;
 }
-
-body {
-  height: 100vh;
-}
-
