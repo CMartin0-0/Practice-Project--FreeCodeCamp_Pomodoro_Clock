@@ -6,11 +6,13 @@ function App() {
   return (
     <Container className="container" id="container">
       <Container id="text-container-1" className="text-container-1">
-        Timer based on the idea that it is good to take a 5 minute break for every 25 minutes spent working. 
+        Timer based on the idea that it is good to take a 5 minute break for
+        every 25 minutes spent working.
         <br></br>
         --
         <br></br>
-        Allows for setting custom values for both the break and the session, of up to one hour for each. 
+        Allows for setting custom values for both the break and the session, of
+        up to one hour for each.
       </Container>
       <Container id="circle-container" className="circle-container">
         <Container id="break-label" className="break-label">
@@ -43,6 +45,12 @@ function App() {
         <Container id="time-left" className="time-left">
           25:00
         </Container>
+        <Button id="start_stop" onClick={() => {}}>
+          start
+        </Button>
+        <Button id="reset" onClick={() => {}}>
+          reset
+        </Button>
       </Container>
     </Container>
   );

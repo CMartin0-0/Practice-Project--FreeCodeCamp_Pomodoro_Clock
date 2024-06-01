@@ -30,3 +30,19 @@ grid-column: 7 / 8;
      grid-row: 7 / 8;
      grid-column: 16 / 17;
 }
+
+#start_stop {
+    grid-row: 14 / 14;
+    grid-column: 7 / 9;
+    width: 75px;
+    height: 50px;
+    text-align: center;
+}
+
+#reset {
+    grid-row: 14 / 14;
+    grid-column: 11 / 13;
+    width: 75px;
+    height: 50px;
+    text-align: center;
+}
