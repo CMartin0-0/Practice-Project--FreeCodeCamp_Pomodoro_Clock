@@ -1,0 +1,32 @@
+button {
+    height: 50px;
+    width: 50px;
+    background:  #F43F44;
+    font-size: 30px;
+    border:  rgb(244, 63, 68);
+}
+
+button:hover{
+background:  rgb(189, 45, 49);
+cursor: pointer;
+}
+
+#break-increment {
+grid-row: 7 / 8;
+grid-column: 3 / 4;
+}
+
+#break-decrement {
+    grid-row: 7 / 8;
+grid-column: 7 / 8;
+}
+
+#session-increment {
+     grid-row: 7 / 8;
+     grid-column: 12 / 13;
+}
+
+#session-decrement {
+     grid-row: 7 / 8;
+     grid-column: 16 / 17;
+}
