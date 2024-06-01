@@ -1,7 +1,7 @@
 import Container from './components/containers';
 import Button from './components/buttons';
 import "./App.css"
-function App() {
+function App( ) {
   
   return (
     <Container className="container" id="container">
