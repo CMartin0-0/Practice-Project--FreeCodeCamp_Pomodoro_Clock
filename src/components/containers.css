@@ -10,8 +10,8 @@
 
 .circle-container {
     display: grid;
-    height: 500px;
-    width: 500px;
+    height: 480px;
+    width: 480px;
     border: black 2px solid;
     border-radius: 50%;
     grid-row: 3 / 3;

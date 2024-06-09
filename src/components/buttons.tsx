@@ -3,7 +3,7 @@ import './buttons.css';
 type ButtonProps = {
   id: string;
   children: string | React.ReactNode;
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
+  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
 };
 
 const Button = ({ id, children, onClick }: ButtonProps) => {

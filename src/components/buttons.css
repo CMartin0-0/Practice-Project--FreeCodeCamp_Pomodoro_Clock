@@ -1,13 +1,14 @@
 button {
     height: 50px;
     width: 50px;
-    background:  #F43F44;
+    background-color: rgba(250, 19, 27, 0);
     font-size: 26px;
-    border:  rgb(244, 63, 68);
+     border: rgba(250, 19, 27, 0);
+     color: rgb(125, 218, 232);
 }
 
 button:hover{
-background:  rgb(189, 45, 49);
+background: rgba(250, 19, 26, 0.494);
 cursor: pointer;
 }
 
