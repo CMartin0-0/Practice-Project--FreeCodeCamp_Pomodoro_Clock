@@ -1,6 +1,7 @@
 body {
-  background: rgba(250, 19, 26, 0.494);
+  background: rgba(30, 28, 28, 0.494);
   margin: 0;
   padding: 0;
   color: white;
+  height: 100vh;
 }

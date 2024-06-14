@@ -2,103 +2,112 @@ import Container from './components/containers';
 import Button from './components/buttons';
 import './App.css';
 import { useImmer } from 'use-immer';
+import { useEffect } from 'react';
 
 const App = () => {
-  const [breakPhase, setBreakPhase] = useImmer({
-    length: 5,
-    isCurrentTimerPhase: false,
-  });
-  const [sessionPhase, setSessionPhase] = useImmer({
-    length: 25,
-    isCurrentTimerPhase: true,
-  });
-  const [timerStatus, setTimerStatus] = useImmer({
-    isRunning: false,
-    timeRemaining: '25:00',
-  });
+  const [breakInterval, setBreakInterval] = useImmer(5);
+  const [sessionInterval, setSessionInterval] = useImmer(25);
+  const [timeLeftInSeconds, setTimeLeftInSeconds] = useImmer(25 * 60);
+  const [timerActive, setTimerActive] = useImmer(false);
+  const [timerPhase, setTimerPhase] = useImmer('session');
+
+  const minutes = Math.floor(timeLeftInSeconds / 60);
+  const seconds = timeLeftInSeconds % 60;
 
   const handleIncrementTimer = (e) => {
     const id = e.target.id;
 
-    if (timerStatus.isRunning) {
-      return;
-    }
-
     if (id === 'break-increment') {
-      if (breakPhase.length >= 1 && breakPhase.length < 60) {
-        setBreakPhase({ ...breakPhase, length: breakPhase.length + 1 });
-        if (breakPhase.isCurrentTimerPhase) {
-          setTimerStatus({
-            ...timerStatus,
-            timeRemaining: clockify(breakPhase.length),
-          });
-          return;
+      if (breakInterval < 60 && !timerActive) {
+        setBreakInterval(breakInterval + 1);
+        if (timerPhase === 'break') {
+          setTimeLeftInSeconds((breakInterval + 1) * 60);
         }
-      } else {
-        return;
       }
     } else if (id === 'session-increment') {
-      if (sessionPhase.length >= 1 && sessionPhase.length < 60) {
-        setSessionPhase({ ...sessionPhase, length: sessionPhase.length + 1 });
-        if (sessionPhase.isCurrentTimerPhase) {
-          setTimerStatus({
-            ...timerStatus,
-            timeRemaining: clockify(sessionPhase.length),
-          });
-          return;
+      if (sessionInterval < 60 && !timerActive) {
+        setSessionInterval(sessionInterval + 1);
+        if (timerPhase === 'session') {
+          setTimeLeftInSeconds((sessionInterval + 1) * 60);
         }
-      } else {
-        return;
       }
     }
-    return;
   };
 
   const handleDecrementTimer = (e) => {
     const id = e.target.id;
 
-    if (timerStatus.isRunning) {
-      return;
-    }
-
     if (id === 'break-decrement') {
-      if (breakPhase.length > 1 && breakPhase.length <= 60) {
-        setBreakPhase({ ...breakPhase, length: breakPhase.length - 1 });
-        if (breakPhase.isCurrentTimerPhase) {
-          setTimerStatus({
-            ...timerStatus,
-            timeRemaining: clockify(breakPhase.length),
-          });
-          return;
+      if (breakInterval > 1 && !timerActive) {
+        setBreakInterval(breakInterval - 1);
+        if (timerPhase === 'break') {
+          setTimeLeftInSeconds((breakInterval - 1) * 60);
         }
-      } else {
-        return;
       }
     } else if (id === 'session-decrement') {
-      if (sessionPhase.length > 1 && sessionPhase.length <= 60) {
-        setSessionPhase({ ...sessionPhase, length: sessionPhase.length - 1 });
-        if (sessionPhase.isCurrentTimerPhase) {
-          setTimerStatus({
-            ...timerStatus,
-            timeRemaining: clockify(sessionPhase.length),
-          });
-          return;
+      if (sessionInterval > 1 && !timerActive) {
+        setSessionInterval(sessionInterval - 1);
+        if (timerPhase === 'session') {
+          setTimeLeftInSeconds((sessionInterval - 1) * 60);
         }
-      } else {
-        return;
       }
     }
-    return;
   };
 
-  const resetTimer = () => {
-    setSessionPhase({length: 25, isCurrentTimerPhase: true});
-    setBreakPhase({length: 5, isCurrentTimerPhase: false});
-    setTimerStatus({timeRemaining: '25:00', isRunning: false});
-
+  const handleResetTimer = () => {
+    setBreakInterval(5);
+    setSessionInterval(25);
+    setTimeLeftInSeconds(25 * 60);
+    setTimerActive(false);
+    setTimerPhase('session');
+    document.getElementById('beep').pause();
+    document.getElementById('beep').currentTime = 0;
   };
 
-  function HandleTimer() {}
+  const handleTimerStatus = () => {
+    if (!timerActive) {
+      setTimerActive(true);
+    } else if (timerActive) {
+      setTimerActive(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleTimerPhaseSwitch = () => {
+      if (timerPhase === 'session') {
+        setTimerPhase('break');
+        setTimeLeftInSeconds(breakInterval * 60);
+      } else if (timerPhase === 'break') {
+        setTimerPhase('session');
+        setTimeLeftInSeconds(sessionInterval * 60);
+      }
+    };
+
+    let intervalId: number | undefined;
+    if (timerActive && timeLeftInSeconds > 0) {
+      intervalId = setInterval(() => {
+        setTimeLeftInSeconds(timeLeftInSeconds - 1);
+      }, 1000);
+    } else if (timerActive && timeLeftInSeconds === 0) {
+      intervalId = setInterval(() => {
+        document.getElementById('beep').play();
+        setTimeLeftInSeconds(timeLeftInSeconds - 1);
+        handleTimerPhaseSwitch();
+      }, 1000);
+    }
+
+    return (): void => {
+      clearInterval(intervalId);
+    };
+  }, [
+    breakInterval,
+    sessionInterval,
+    setTimeLeftInSeconds,
+    timeLeftInSeconds,
+    setTimerPhase,
+    timerPhase,
+    timerActive,
+  ]);
 
   return (
     <Container className="container" id="container">
@@ -116,7 +125,7 @@ const App = () => {
           Break Length
         </Container>
         <Container id="break-length" className="break-length">
-          {breakPhase.length}
+          {breakInterval}
         </Container>
         <Button id="break-decrement" onClick={handleDecrementTimer}>
           ᗐ
@@ -128,7 +137,7 @@ const App = () => {
           Session Length
         </Container>
         <Container id="session-length" className="session-length">
-          {sessionPhase.length}
+          {sessionInterval}
         </Container>
         <Button id="session-decrement" onClick={handleDecrementTimer}>
           ᗐ
@@ -137,17 +146,23 @@ const App = () => {
           ᗑ
         </Button>
         <Container id="timer-label" className="timer-label">
-          {sessionPhase.isCurrentTimerPhase ? 'session' : 'break'}
+          {timerPhase}
         </Container>
         <Container id="time-left" className="time-left">
-          {timerStatus.timeRemaining}
+          {minutes < 10 ? ('0' + minutes).slice(-2) : minutes}:
+          {seconds < 10 ? ('0' + seconds).slice(-2) : seconds}
         </Container>
-        <Button id="start_stop" onClick={() => {}}>
-          play pause
+        <Button id="start_stop" onClick={handleTimerStatus}>
+          {timerActive ? '❚❚' : '▶'}
         </Button>
-        <Button id="reset" onClick={() => resetTimer()}>
-          reset
+        <Button id="reset" onClick={handleResetTimer}>
+          ↺
         </Button>
+        <audio
+          src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+          id="beep"
+        >
+        </audio>
       </Container>
     </Container>
   );
