@@ -66,6 +66,9 @@ height: 50px;
 align-content: center;
 }
 
+#timer-label::first-letter{
+  text-transform: capitalize;
+}
 #time-left {
 font-size: 30px;
 grid-row: 12 / 13;

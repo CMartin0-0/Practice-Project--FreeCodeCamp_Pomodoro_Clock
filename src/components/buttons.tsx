@@ -4,7 +4,7 @@ import './buttons.css';
 type ButtonProps = {
   id: string;
   children: string | React.ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement> | undefined;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
 const Button = ({ id, children, onClick }: ButtonProps) => {
