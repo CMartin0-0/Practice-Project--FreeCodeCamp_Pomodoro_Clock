@@ -1,4 +1,4 @@
-# FreeCodeCamp 25 + 5 clock project
+# FreeCodeCamp 25 + 5 Clock 
 
 ### My solution for the [FCC 25 + 5 Clock](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-25--5-clock) Project. Check out the full working project [here](https://fcc-25-5-clock-seven.vercel.app/).
 
