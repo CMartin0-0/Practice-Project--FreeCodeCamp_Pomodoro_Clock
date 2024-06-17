@@ -20,7 +20,7 @@ We will accept and try to fix all issue reports that use the suggested technolog
  Happy coding!
 #
 
-Any feedback/suggetions are always welcome and appreciated :)
+Any feedback/suggestions are always welcome and appreciated :)
 
 
 
