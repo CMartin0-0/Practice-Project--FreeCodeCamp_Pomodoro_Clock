@@ -6,8 +6,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
-    "checkJs": true,
     "sourceMap": true,
 
     /* Bundler mode */
