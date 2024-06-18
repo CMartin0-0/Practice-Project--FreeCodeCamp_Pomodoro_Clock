@@ -1,4 +1,5 @@
-import "./containers.css"
+import './containers.css';
+import '../App.css';
 
 type ContainerProps = {
   children: React.ReactNode | string;

@@ -3,6 +3,7 @@ import Button from './components/buttons';
 import './App.css';
 import { useImmer } from 'use-immer';
 import { useEffect, useRef } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 const App = () => {
   //setting up all the state values that are needed, immer is used for simplicity and beacuse it's interchangeable with useState
@@ -11,12 +12,21 @@ const App = () => {
   const [timeLeftInSeconds, setTimeLeftInSeconds] = useImmer(25 * 60);
   const [timerActive, setTimerActive] = useImmer(false);
   const [timerPhase, setTimerPhase] = useImmer('session');
+  const [animationKey, setAnimationKey] = useImmer(0);
+  const [animationDuration, setAnimationDuration] = useImmer(25 * 60);
 
   //the two variables below will be used to for the timer operation and display
   const minutes = Math.floor(timeLeftInSeconds / 60);
   const seconds = timeLeftInSeconds % 60;
   //the ref that holds the reference to the alarm audio clip
   const audioClip = useRef<HTMLAudioElement>(null);
+
+  const COLORS: Record<string, `#${string}`> = {
+    Session: '#ff0000',
+    Break: '#32d3a3',
+  };
+
+  
 
   const handleIncrementTimer = (e: React.MouseEvent<HTMLElement>) => {
     //save the id of the html element the event handler fired from, to tell what value to change
@@ -29,6 +39,8 @@ const App = () => {
         //check if the value in the timer display needs to be updated too
         if (timerPhase === 'break') {
           setTimeLeftInSeconds((breakInterval + 1) * 60);
+           setAnimationKey((animationKey) => animationKey + 1);
+           setAnimationDuration((breakInterval + 1) * 60);
         }
       }
     } else if (id === 'session-increment') {
@@ -37,6 +49,8 @@ const App = () => {
         //check if the value in the timer display needs to be updated too
         if (timerPhase === 'session') {
           setTimeLeftInSeconds((sessionInterval + 1) * 60);
+           setAnimationKey((animationKey) => animationKey + 1);
+           setAnimationDuration((sessionInterval + 1) * 60);
         }
       }
     }
@@ -51,6 +65,8 @@ const App = () => {
         setBreakInterval(breakInterval - 1);
         if (timerPhase === 'break') {
           setTimeLeftInSeconds((breakInterval - 1) * 60);
+           setAnimationKey((animationKey) => animationKey + 1);
+           setAnimationDuration((breakInterval - 1) * 60);
         }
       }
     } else if (id === 'session-decrement') {
@@ -58,6 +74,8 @@ const App = () => {
         setSessionInterval(sessionInterval - 1);
         if (timerPhase === 'session') {
           setTimeLeftInSeconds((sessionInterval - 1) * 60);
+           setAnimationKey((animationKey) => animationKey + 1);
+           setAnimationDuration((sessionInterval - 1) * 60);
         }
       }
     }
@@ -74,6 +92,8 @@ const App = () => {
       audioClip.current.pause();
       audioClip.current.currentTime = 0;
     }
+    setAnimationKey(animationKey => animationKey + 1)
+    setAnimationDuration(25 * 60);
   };
 
   const handleTimerStatus = () => {
@@ -92,9 +112,13 @@ const App = () => {
       if (timerPhase === 'session') {
         setTimerPhase('break');
         setTimeLeftInSeconds(breakInterval * 60);
+        setAnimationKey(animationKey => animationKey + 1);
+        setAnimationDuration(breakInterval * 60);
       } else if (timerPhase === 'break') {
         setTimerPhase('session');
         setTimeLeftInSeconds(sessionInterval * 60);
+        setAnimationKey(animationKey => animationKey + 1);
+        setAnimationDuration(sessionInterval * 60);
       }
     };
     //variable to hold interval id so that it can be cleared
@@ -103,19 +127,22 @@ const App = () => {
     if (timerActive && timeLeftInSeconds > 0) {
       intervalId = setInterval(() => {
         setTimeLeftInSeconds(timeLeftInSeconds - 1);
+        setAnimationKey(Math.random());
       }, 1000);
     } else if (timerActive && timeLeftInSeconds === 0) {
       //checks if the timer phase should be swapped and the alarm sound should play
+          if (audioClip.current !== null) {
+            audioClip.current.play();
+          }
       intervalId = setInterval(() => {
-        if (audioClip.current !== null) {
-        audioClip.current.play();
-        }
-        setTimeLeftInSeconds(timeLeftInSeconds - 1);
-        handleTimerPhaseSwitch();
+        
+             setTimeLeftInSeconds(timeLeftInSeconds - 1);
+            handleTimerPhaseSwitch();
+        
       }, 1000);
-    }
+    } 
     // this is the cleanup for our effect that clears our interval after each run
-    return (): void => {
+    return () => {
       clearInterval(intervalId);
     };
   }, [
@@ -127,7 +154,11 @@ const App = () => {
     setTimerPhase,
     timerPhase,
     timerActive,
-    audioClip
+    audioClip,
+    animationKey,
+    setAnimationKey,
+    setAnimationDuration,
+    animationDuration
   ]);
 
   return (
@@ -168,6 +199,40 @@ const App = () => {
           <Button id="session-increment" onClick={handleIncrementTimer}>
             ᗑ
           </Button>
+          {timerPhase === 'session' ? (
+            <Container id="animated-timer-wrap" className="animated-timer-wrap">
+              <CountdownCircleTimer
+                colors={['#ff0000', '#32d3a3']}
+                colorsTime={[animationDuration, 5, 0]}
+                isSmoothColorTransition={false}
+                size={200}
+                isPlaying={timerActive ? true : false}
+                duration={animationDuration}
+                key={animationKey}
+                initialRemainingTime={timeLeftInSeconds}
+                updateInterval={1}
+                strokeWidth={2}
+              ></CountdownCircleTimer>
+            </Container>
+          ) : (
+            <Container
+              id="animated-timer-wrap-2"
+              className="animated-timer-wrap"
+            >
+              <CountdownCircleTimer
+                colors={[ '#32d3a3','#ff0000']}
+                colorsTime={[animationDuration, 5, 0]}
+                isSmoothColorTransition={false}
+                size={250}
+                isPlaying={timerActive ? true : false}
+                duration={animationDuration}
+                key={animationKey}
+                initialRemainingTime={timeLeftInSeconds}
+                updateInterval={1}
+                strokeWidth={2}
+              ></CountdownCircleTimer>
+            </Container>
+          )}
           <Container id="timer-label" className="timer-label">
             {/*sets timer label to the current timer phase*/}
             {timerPhase}

@@ -7,18 +7,21 @@
     align-items: center;
     justify-items: center;
     align-content: center;
+    text-align: center;
 }
 
 .circle-container {
     display: grid;
-    height: 480px;
-    width: 480px;
-    border: rgba(255, 0, 0, 0.723) 5px solid;
+    height: 504px;
+    width: 504px;
+    border: var(--main-color-red) 2px solid;
     border-radius: 50%;
     grid-row: 3 / 3;
     grid-column: 2 / 2;
     grid-template-columns: repeat(20, 25px);
     grid-template-rows: repeat(20, 25px);
+    
+    
 }
 
 .text-container-1 {
@@ -27,41 +30,44 @@
   grid-row: 2 / 2;
   grid-column: 2 / 2;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
 }
 
 #break-label {
-font-size: 24px;
-grid-row: 6 / 6;
-grid-column: 3 / 10;
+font-size: 1.5rem;
+grid-row: 3 / 3;
+grid-column: 4 / 10;
 text-align: center;
 font-weight: 500;
-width: 150px;
+width: 135px;
 height: 25px;
+border-right: 2px solid var(--main-color-green);
 position: relative;
-top: -3px;
+left: 32px;
+
 }
 
 #session-label {
-font-size: 24px;
-grid-row: 6 / 6;
-grid-column: 12 / 18;
+font-size: 1.5rem;
+grid-row: 3 / 3;
+grid-column: 11 / 17;
 text-align: center;
 font-weight: 500;
 width: 150px;
 height: 25px;
+border-left: 2px solid var(--main-color-red);
 position: relative;
-top: -3px;
+right: -5px;
 }
 
 #timer-label {
-font-size: 34px;
-grid-row: 10 / 11;
+font-size: 2.125rem;
+grid-row: 12 / 13;
 grid-column: 8 / 13;
 text-align: center;
 font-weight: 500;
-width: 125px;
+width: 150px;
 height: 50px;
 align-content: center;
 }
@@ -70,20 +76,20 @@ align-content: center;
   text-transform: capitalize;
 }
 #time-left {
-font-size: 30px;
-grid-row: 12 / 13;
-grid-column: 8 / 11;
+font-size: 1.875rem;
+grid-row: 14 / 15;
+grid-column: 8 / 13;
 text-align: center;
 font-weight: 500;
-width: 125px;
+width: 150px;
 height: 50px;
 align-content: center;
 }
 
 #break-length {
-font-size: 26px;
-grid-row: 7 / 8;
-grid-column: 5 / 6;
+font-size: 1.625rem;
+grid-row: 4 / 5;
+grid-column: 7 / 8;
 text-align: center;
 font-weight: 500;
 height: 50px;
@@ -92,12 +98,29 @@ align-content: center;
 }
 
 #session-length {
-font-size: 26px;
-grid-row: 7 / 8;
-grid-column: 14 / 15;
+font-size: 1.625rem;
+grid-row: 4 / 5;
+grid-column: 13 / 14;
 text-align: center;
 font-weight: 500;
 height: 50px;
 width: 50px;
 align-content: center;
+}
+
+#animated-timer-wrap{
+  grid-row: 10 / 14;
+  grid-column: 7 / 14;
+  width: 202px;
+  height: 202px;
+  text-align: center;
+
+}
+
+#animated-timer-wrap-2{
+  grid-row: 9 / 18;
+  grid-column: 6 / 15;
+  width: 252px;
+  height: 252px;
+  text-align: center;
 }

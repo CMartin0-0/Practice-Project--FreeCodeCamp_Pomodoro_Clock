@@ -1,5 +1,6 @@
 import { MouseEventHandler } from 'react';
 import './buttons.css';
+import '../App.css';
 
 type ButtonProps = {
   id: string;

@@ -1,7 +1,28 @@
+@font-face {
+  font-family: 'Glory-Regular';
+  src: local('Glory-Regular'), url(./assets/fonts/Glory-Regular.ttf) format('ttf');
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+
+}
+
+:root {
+--main-color-red: #ff0000bf;
+--main-color-green: #32d3a3bf;
+--main-color-blue: rgba(106, 235, 255, 0.75);
+--main-color-gray: rgba(250, 19, 27, 0);
+--hover-color-blue: rgba(14, 60, 67, 0.75);
+}
+
 body {
   background: rgba(30, 28, 28, 0.494);
   margin: 0;
   padding: 0;
   color: white;
   height: 100vh;
+  font-family: 'Glory-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

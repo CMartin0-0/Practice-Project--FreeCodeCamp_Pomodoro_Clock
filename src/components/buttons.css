@@ -1,49 +1,57 @@
 button {
     height: 50px;
     width: 50px;
-    background-color: rgba(250, 19, 27, 0);
-    font-size: 26px;
-     border: rgba(250, 19, 27, 0);
-     color: rgb(125, 218, 232);
+    background-color: var(--main-color-gray);
+    font-size: 1.625rem;
+     border: var(--main-color-gray);
+     color: var(--main-color-blue);
 }
 
 button:hover{
-background: rgba(250, 19, 26, 0.494);
+background: var(--hover-color-blue);
 cursor: pointer;
 }
 
 #break-increment {
-grid-row: 7 / 8;
-grid-column: 3 / 4;
+grid-row: 4 / 5;
+grid-column: 5 / 6;
 }
 
 #break-decrement {
-    grid-row: 7 / 8;
-grid-column: 7 / 8;
+    grid-row: 6 / 7;
+grid-column: 5 / 6;
 }
 
 #session-increment {
-     grid-row: 7 / 8;
-     grid-column: 12 / 13;
+     grid-row: 4 / 5;
+     grid-column: 15 / 16;
 }
 
 #session-decrement {
-     grid-row: 7 / 8;
-     grid-column: 16 / 17;
+     grid-row: 6 / 7;
+     grid-column: 15 / 16;
 }
 
 #start_stop {
-    grid-row: 14 / 14;
-    grid-column: 7 / 9;
-    width: 75px;
+    grid-row: 6 / 7;
+    grid-column: 9 / 10;
+    width: 50px;
     height: 50px;
     text-align: center;
+    font-size: 1.5rem;
+    position: relative;
+    right: 10px;
 }
 
 #reset {
-    grid-row: 14 / 14;
+    grid-row: 6 / 7;
     grid-column: 11 / 13;
-    width: 75px;
+    width: 50px;
     height: 50px;
     text-align: center;
+    font-size: 2rem;
+    line-height: 0px;
+    padding-bottom: 6px;
+     position: relative;
+    left: 10px;
 }
