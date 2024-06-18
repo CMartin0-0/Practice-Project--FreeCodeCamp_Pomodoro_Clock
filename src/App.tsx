@@ -21,13 +21,6 @@ const App = () => {
   //the ref that holds the reference to the alarm audio clip
   const audioClip = useRef<HTMLAudioElement>(null);
 
-  const COLORS: Record<string, `#${string}`> = {
-    Session: '#ff0000',
-    Break: '#32d3a3',
-  };
-
-  
-
   const handleIncrementTimer = (e: React.MouseEvent<HTMLElement>) => {
     //save the id of the html element the event handler fired from, to tell what value to change
     const id = e.currentTarget.id;
