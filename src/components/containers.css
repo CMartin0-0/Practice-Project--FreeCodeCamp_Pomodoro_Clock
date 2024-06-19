@@ -78,10 +78,10 @@ align-content: center;
 #time-left {
 font-size: 1.875rem;
 grid-row: 14 / 15;
-grid-column: 8 / 13;
+grid-column: 9 / 12;
 text-align: center;
 font-weight: 500;
-width: 150px;
+width: 100px;
 height: 50px;
 align-content: center;
 }
