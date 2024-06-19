@@ -44,7 +44,7 @@ width: 135px;
 height: 25px;
 border-right: 2px solid var(--main-color-green);
 position: relative;
-left: 32px;
+left: 25px;
 
 }
 
@@ -58,7 +58,7 @@ width: 150px;
 height: 25px;
 border-left: 2px solid var(--main-color-red);
 position: relative;
-right: -5px;
+right: -2px;
 }
 
 #timer-label {
