@@ -156,6 +156,7 @@ const App = () => {
 
   return (
     //this is the returned jsx for the timer
+    <>
       <Container className="container" id="container">
         <Container id="text-container-1" className="text-container-1">
           Timer based on the idea that it is good to take a 5 minute break for
@@ -250,6 +251,7 @@ const App = () => {
           type="audio/mpeg"
         />
       </audio>
+    </>
   );
 };
 
