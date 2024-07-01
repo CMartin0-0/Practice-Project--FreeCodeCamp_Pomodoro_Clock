@@ -156,7 +156,7 @@ const App = () => {
 
   return (
     //this is the returned jsx for the timer
-      <div className="container" id="container">
+      <Container className="container" id="container">
         <Container id="text-container-1" className="text-container-1">
           Timer based on the idea that it is good to take a 5 minute break for
           every 25 minutes spent working.
@@ -242,7 +242,7 @@ const App = () => {
             ↺
           </Button>
         </Container>
-      
+      </Container>
       <audio id="beep" ref={audioClip}>
         <source
           src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
@@ -250,7 +250,6 @@ const App = () => {
           type="audio/mpeg"
         />
       </audio>
-        </div>
   );
 };
 
