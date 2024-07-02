@@ -19,10 +19,13 @@
 }
 
 body {
-  background: rgba(30, 28, 28, 0.494);
+  background: rgb(10, 10, 10);
   margin: 0;
   padding: 0;
   color: white;
   height: 100vh;
   font-family: 'Glory-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+ html {
+  height: 100vh;
+ }
