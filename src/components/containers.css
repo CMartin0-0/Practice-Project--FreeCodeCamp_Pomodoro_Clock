@@ -28,7 +28,7 @@
   grid-column: 1 / 1;
   font-size: clamp(1.6rem, 3vw, 1.8rem);
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 
@@ -40,7 +40,7 @@ text-align: center;
 grid-column: 2 / 3;
 grid-row: 1 / 2;
 place-self: center center;
-margin-bottom: 5px;
+margin-bottom: 15px;
 }
 
 
@@ -53,7 +53,7 @@ text-align: center;
  grid-column: 3 / 4;
   grid-row: 1 / 2;
   place-self: center center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   
 }
 
