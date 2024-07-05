@@ -19,13 +19,26 @@
 }
 
 body {
+  display: flex;
   background: rgb(10, 10, 10);
   margin: 0;
   padding: 0;
   color: white;
-  height: 100vh;
+  height: 100%;
+  width: 100vw;
   font-family: 'Glory-Regular', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  place-content: center center;
+
 }
  html {
   height: 100vh;
  }
+
+ #root {
+  display: grid;
+    height: 100%;
+    max-width: 900px;
+    min-width: 450px;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 10% auto 10%;
+  }

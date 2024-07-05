@@ -168,18 +168,18 @@ const App = () => {
           of up to one hour for each.
         </Container>
         <Container id="circle-container" className="circle-container">
-          <Container id="break-label" className="break-label">
+           <Container id="break-label" className="break-label">
             Break Length
-          </Container>
-          <Container id="break-length" className="break-length">
+           </Container>
+           <Container id="break-length" className="break-length">
             {breakInterval}
-          </Container>
-          <Button id="break-decrement" onClick={handleDecrementTimer}>
+           </Container>
+           <Button id="break-decrement" onClick={handleDecrementTimer}>
             ᗐ
-          </Button>
-          <Button id="break-increment" onClick={handleIncrementTimer}>
+           </Button>
+           <Button id="break-increment" onClick={handleIncrementTimer}>
             ᗑ
-          </Button>
+           </Button>
           <Container id="session-label" className="session-label">
             Session Length
           </Container>
@@ -198,7 +198,7 @@ const App = () => {
                 colors={['#ff0000', '#32d3a3']}
                 colorsTime={[animationDuration, 5, 0]}
                 isSmoothColorTransition={false}
-                size={200}
+                size={250}
                 isPlaying={timerActive ? true : false}
                 duration={animationDuration}
                 key={animationKey}
@@ -216,7 +216,7 @@ const App = () => {
                 colors={[ '#32d3a3','#ff0000']}
                 colorsTime={[animationDuration, 5, 0]}
                 isSmoothColorTransition={false}
-                size={250}
+                size={300}
                 isPlaying={timerActive ? true : false}
                 duration={animationDuration}
                 key={animationKey}
