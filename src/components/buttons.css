@@ -3,11 +3,14 @@ button {
      border: var(--main-color-gray);
      color: var(--main-color-blue);
      font-size: 1.3rem;
+     border-radius: 10px;
 }
 
+@media (hover: hover) and (pointer: fine) {
 button:hover{
 background: var(--hover-color-blue);
 cursor: pointer;
+}
 }
 
 #break-increment {
@@ -16,6 +19,7 @@ grid-column: 2 / 3;
 place-self: center start;
 width: 40px;
 height: 40px;
+margin-bottom: 10px;;
 
 }
 
@@ -25,6 +29,7 @@ grid-column: 2 / 3;
 place-self: center start;
 width: 40px;
 height: 40px;
+margin-bottom: 10px;
 }
 
 #session-increment {
@@ -34,7 +39,8 @@ place-self: center end;
 width: 40px;
 height: 40px;
 position: relative;
-left: 5px;
+left: 2px;
+margin-bottom: 10px;
 }
 
 #session-decrement {
@@ -44,7 +50,8 @@ place-self: center end;
 width: 40px;
 height: 40px;
 position: relative;
-left: 5px;
+left: 2px;
+margin-bottom: 10px;
     
 }
 
@@ -52,6 +59,7 @@ left: 5px;
    grid-row: 10 / 10;
    grid-column: 2 / 3;
     font-size: 1.3rem;
+    
 }
 
 #reset {
