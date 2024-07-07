@@ -19,7 +19,8 @@ grid-column: 2 / 3;
 place-self: center start;
 width: 40px;
 height: 40px;
-margin-bottom: 10px;;
+margin-bottom: 10px;
+margin-left: calc(25% - 35px);
 
 }
 
@@ -30,28 +31,28 @@ place-self: center start;
 width: 40px;
 height: 40px;
 margin-bottom: 10px;
+margin-left: calc(25% - 35px);
 }
 
 #session-increment {
-    grid-row: 2 / 3;
+grid-row: 2 / 3;
 grid-column: 3 / 4;
 place-self: center end;
 width: 40px;
 height: 40px;
-position: relative;
-left: 2px;
 margin-bottom: 10px;
+margin-right: calc(25% - 35px);
 }
 
 #session-decrement {
-      grid-row: 3 / 4;
+grid-row: 3 / 4;
 grid-column: 3 / 4;
 place-self: center end;
 width: 40px;
 height: 40px;
-position: relative;
-left: 2px;
+
 margin-bottom: 10px;
+margin-right: calc(25% - 35px);
     
 }
 
@@ -69,48 +70,27 @@ margin-bottom: 10px;
 }
 
 
-@media (max-width: 750px) {
-#session-increment {
-    position: relative;
-    left: 15px;
-}
-
-#session-decrement {
-    position: relative;
-    left: 15px;   
-}
+@media (max-width: 600px) {
 
 #break-increment {
  position: relative;
-    right: 15px;   
+    right: 10%;   
 }
 
 #break-decrement {
  position: relative;
-    right: 15px;   
+    right: 10%;   
 
 }
-}
 
-@media (min-width: 750px) {
 #session-increment {
-    position: relative;
-    right: 15px;
+ position: relative;
+    left: 10%;   
 }
 
 #session-decrement {
-    position: relative;
-    right: 15px;   
-}
-
-#break-increment {
  position: relative;
-    left: 15px;   
-}
-
-#break-decrement {
- position: relative;
-    left: 15px;   
+    left: 10%;   
 
 }
 }

@@ -4,6 +4,7 @@ import './App.css';
 import { useImmer } from 'use-immer';
 import { useEffect, useRef } from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { AutoTextSize} from 'auto-text-size';
 
 const App = () => {
   //setting up all the state values that are needed, immer is used for simplicity and beacuse it's interchangeable with useState
@@ -159,6 +160,11 @@ const App = () => {
     <>
       <Container className="container" id="container">
         <Container id="text-container-1" className="text-container-1">
+        <AutoTextSize
+         mode='multiline'
+         minFontSizePx={20}
+         maxFontSizePx={26}
+        >
           Timer based on the idea that it is good to take a 5 minute break for
           every 25 minutes spent working.
           <br></br>
@@ -166,6 +172,7 @@ const App = () => {
           <br></br>
           Allows for setting custom values for both the break and the session,
           of up to one hour for each.
+          </AutoTextSize>
         </Container>
         <Container id="circle-container" className="circle-container">
            <Container id="break-label" className="break-label">
@@ -203,7 +210,7 @@ const App = () => {
                 duration={animationDuration}
                 key={animationKey}
                 initialRemainingTime={timeLeftInSeconds}
-                updateInterval={1}
+                updateInterval={0}
                 strokeWidth={2}
               ></CountdownCircleTimer>
             </Container>
@@ -221,7 +228,7 @@ const App = () => {
                 duration={animationDuration}
                 key={animationKey}
                 initialRemainingTime={timeLeftInSeconds}
-                updateInterval={1}
+                updateInterval={0}
                 strokeWidth={2}
               ></CountdownCircleTimer>
             </Container>
