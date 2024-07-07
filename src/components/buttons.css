@@ -57,14 +57,14 @@ margin-right: calc(25% - 35px);
 }
 
 #start_stop {
-   grid-row: 10 / 10;
+   grid-row: 9 / 10;
    grid-column: 2 / 3;
     font-size: 1.3rem;
     
 }
 
 #reset {
-    grid-row: 10 / 10;
+    grid-row: 9 / 10;
     grid-column: 3 / 4;
     font-size: 1.5rem;
 }

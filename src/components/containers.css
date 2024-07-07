@@ -61,7 +61,8 @@ font-weight: 500;
 grid-column: 2 / 4;
 grid-row: 5 / 6;
 place-self: center center;
-margin-top: 50px;
+margin-top: 25px;
+
 }
 
 #timer-label::first-letter{
@@ -73,7 +74,6 @@ font-weight: 500;
 grid-column: 2 / 4;
 grid-row: 6 / 7;
 place-self: center center;
-margin-top: 50px;
 }
 
 #break-length {
@@ -98,18 +98,21 @@ margin-bottom: 15px;
 
 #animated-timer-wrap{
   height: 300px;
-  grid-row: 3 / 10;
+  grid-row: 3 / 9;
   grid-column: 2 / 4;
-  place-self: center center;
-  margin-top: 50px;
+  place-self: center;
+  align-content: center;
+ margin-top: 25px;
 }
 
 #animated-timer-wrap-2{
   height: 300px;
   grid-row: 3 / 9;
   grid-column: 2 / 4;
-  place-self: center center;
-  margin-top: 50px;
+  place-self: center;
+  align-content: center;
+  margin-top: 25px;
+ 
 }
 @media (max-width: 557.5px) {
   #break-label {
