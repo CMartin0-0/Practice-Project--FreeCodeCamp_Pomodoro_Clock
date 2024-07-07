@@ -65,7 +65,7 @@ font-weight: 500;
 grid-column: 2 / 4;
 grid-row: 5 / 6;
 place-self: center center;
-margin-top: 20px;
+margin-top: 40px;
 }
 
 #timer-label::first-letter{
@@ -77,7 +77,7 @@ font-weight: 500;
 grid-column: 2 / 4;
 grid-row: 6 / 7;
 place-self: center center;
-margin-top: 20px;
+margin-top: 40px;
 }
 
 #break-length {
@@ -103,7 +103,7 @@ place-self: center center;
   grid-row: 3 / 10;
   grid-column: 2 / 4;
   place-self: center center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 #animated-timer-wrap-2{
@@ -111,5 +111,5 @@ place-self: center center;
   grid-row: 3 / 9;
   grid-column: 2 / 4;
   place-self: center center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
