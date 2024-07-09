@@ -247,7 +247,7 @@ const App = () => {
             {timerActive ? '❚❚' : '▶'}
           </Button>
           <Button id="reset" onClick={handleResetTimer}>
-            ↺
+            {'↺'}
           </Button>
         </Container>
       </Container>

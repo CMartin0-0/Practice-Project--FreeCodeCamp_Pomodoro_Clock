@@ -74,6 +74,7 @@ font-weight: 500;
 grid-column: 2 / 4;
 grid-row: 6 / 7;
 place-self: center center;
+margin-top: 10px;
 }
 
 #break-length {

@@ -61,7 +61,7 @@ margin-right: calc(25% - 35px);
    grid-column: 2 / 3;
     font-size: 1.3rem;
     margin-top: 25px;
-    width: 50px;
+    width: 75px;
      place-self: center;
 }
 
@@ -70,7 +70,7 @@ margin-right: calc(25% - 35px);
     grid-column: 3 / 4;
     font-size: 1.5rem;
      margin-top: 25px;
-     width: 50px;
+     width: 75px;
     place-self: center;
 }
 
