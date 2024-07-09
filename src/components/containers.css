@@ -23,10 +23,11 @@
   grid-row: 2 / 2;
   grid-column: 2 / 2;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
   border: 3px dotted var(--main-color-blue);
   width: clamp(400px, 98vw, 1200px);
   place-content: center;
+  margin-top: 5px;
 }
 
 
