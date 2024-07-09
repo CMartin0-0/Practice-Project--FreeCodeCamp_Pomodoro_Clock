@@ -60,13 +60,18 @@ margin-right: calc(25% - 35px);
    grid-row: 9 / 10;
    grid-column: 2 / 3;
     font-size: 1.3rem;
-    
+    margin-top: 25px;
+    width: 50px;
+     place-self: center;
 }
 
 #reset {
     grid-row: 9 / 10;
     grid-column: 3 / 4;
     font-size: 1.5rem;
+     margin-top: 25px;
+     width: 50px;
+    place-self: center;
 }
 
 
