@@ -68,7 +68,7 @@ margin-right: calc(25% - 35px);
 #reset {
     grid-row: 9 / 10;
     grid-column: 3 / 4;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
      margin-top: 25px;
      width: 75px;
     place-self: center;
