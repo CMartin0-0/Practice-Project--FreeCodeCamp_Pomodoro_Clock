@@ -4,7 +4,7 @@ import './App.css';
 import { useImmer } from 'use-immer';
 import { useEffect, useRef } from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { AutoTextSize} from 'auto-text-size';
+import { AutoTextSize } from 'auto-text-size';
 
 const App = () => {
   //setting up all the state values that are needed, immer is used for simplicity and beacuse it's interchangeable with useState
@@ -33,8 +33,8 @@ const App = () => {
         //check if the value in the timer display needs to be updated too
         if (timerPhase === 'break') {
           setTimeLeftInSeconds((breakInterval + 1) * 60);
-           setAnimationKey((animationKey) => animationKey + 1);
-           setAnimationDuration((breakInterval + 1) * 60);
+          setAnimationKey((animationKey) => animationKey + 1);
+          setAnimationDuration((breakInterval + 1) * 60);
         }
       }
     } else if (id === 'session-increment') {
@@ -43,8 +43,8 @@ const App = () => {
         //check if the value in the timer display needs to be updated too
         if (timerPhase === 'session') {
           setTimeLeftInSeconds((sessionInterval + 1) * 60);
-           setAnimationKey((animationKey) => animationKey + 1);
-           setAnimationDuration((sessionInterval + 1) * 60);
+          setAnimationKey((animationKey) => animationKey + 1);
+          setAnimationDuration((sessionInterval + 1) * 60);
         }
       }
     }
@@ -59,8 +59,8 @@ const App = () => {
         setBreakInterval(breakInterval - 1);
         if (timerPhase === 'break') {
           setTimeLeftInSeconds((breakInterval - 1) * 60);
-           setAnimationKey((animationKey) => animationKey + 1);
-           setAnimationDuration((breakInterval - 1) * 60);
+          setAnimationKey((animationKey) => animationKey + 1);
+          setAnimationDuration((breakInterval - 1) * 60);
         }
       }
     } else if (id === 'session-decrement') {
@@ -68,8 +68,8 @@ const App = () => {
         setSessionInterval(sessionInterval - 1);
         if (timerPhase === 'session') {
           setTimeLeftInSeconds((sessionInterval - 1) * 60);
-           setAnimationKey((animationKey) => animationKey + 1);
-           setAnimationDuration((sessionInterval - 1) * 60);
+          setAnimationKey((animationKey) => animationKey + 1);
+          setAnimationDuration((sessionInterval - 1) * 60);
         }
       }
     }
@@ -86,12 +86,12 @@ const App = () => {
       audioClip.current.pause();
       audioClip.current.currentTime = 0;
     }
-    setAnimationKey(animationKey => animationKey + 1)
+    setAnimationKey((animationKey) => animationKey + 1);
     setAnimationDuration(25 * 60);
   };
 
   const handleTimerStatus = () => {
-    //handles starting and stopping the timer 
+    //handles starting and stopping the timer
     //also the value by which it is decided whether the play or pause button is visible at any given time
     if (!timerActive) {
       setTimerActive(true);
@@ -106,18 +106,18 @@ const App = () => {
       if (timerPhase === 'session') {
         setTimerPhase('break');
         setTimeLeftInSeconds(breakInterval * 60);
-        setAnimationKey(animationKey => animationKey + 1);
+        setAnimationKey((animationKey) => animationKey + 1);
         setAnimationDuration(breakInterval * 60);
       } else if (timerPhase === 'break') {
         setTimerPhase('session');
         setTimeLeftInSeconds(sessionInterval * 60);
-        setAnimationKey(animationKey => animationKey + 1);
+        setAnimationKey((animationKey) => animationKey + 1);
         setAnimationDuration(sessionInterval * 60);
       }
     };
     //variable to hold interval id so that it can be cleared
     let intervalId: number | undefined;
-    //logic that handles the timer counting down and updates the display/value every 1000ms 
+    //logic that handles the timer counting down and updates the display/value every 1000ms
     if (timerActive && timeLeftInSeconds > 0) {
       intervalId = setInterval(() => {
         setTimeLeftInSeconds(timeLeftInSeconds - 1);
@@ -125,16 +125,14 @@ const App = () => {
       }, 1000);
     } else if (timerActive && timeLeftInSeconds === 0) {
       //checks if the timer phase should be swapped and the alarm sound should play
-          if (audioClip.current !== null) {
-            audioClip.current.play();
-          }
+      if (audioClip.current !== null) {
+        audioClip.current.play();
+      }
       intervalId = setInterval(() => {
-        
-             setTimeLeftInSeconds(timeLeftInSeconds - 1);
-            handleTimerPhaseSwitch();
-        
+        setTimeLeftInSeconds(timeLeftInSeconds - 1);
+        handleTimerPhaseSwitch();
       }, 1000);
-    } 
+    }
     // this is the cleanup for our effect that clears our interval after each run
     return () => {
       clearInterval(intervalId);
@@ -152,7 +150,7 @@ const App = () => {
     animationKey,
     setAnimationKey,
     setAnimationDuration,
-    animationDuration
+    animationDuration,
   ]);
 
   return (
@@ -160,33 +158,29 @@ const App = () => {
     <>
       <Container className="container" id="container">
         <Container id="text-container-1" className="text-container-1">
-        <AutoTextSize
-         mode='multiline'
-         minFontSizePx={20}
-         maxFontSizePx={26}
-        >
-          Timer based on the idea that it is good to take a 5 minute break for
-          every 25 minutes spent working.
-          <br></br>
-          --
-          <br></br>
-          Allows for setting custom values for both the break and the session,
-          of up to one hour for each.
+          <AutoTextSize mode="multiline" minFontSizePx={20} maxFontSizePx={26}>
+            Timer based on the idea that it is good to take a 5 minute break for
+            every 25 minutes spent working.
+            <br></br>
+            --
+            <br></br>
+            Allows for setting custom values for both the break and the session,
+            of up to one hour for each.
           </AutoTextSize>
         </Container>
         <Container id="circle-container" className="circle-container">
-           <Container id="break-label" className="break-label">
+          <Container id="break-label" className="break-label">
             Break Length
-           </Container>
-           <Container id="break-length" className="break-length">
+          </Container>
+          <Container id="break-length" className="break-length">
             {breakInterval}
-           </Container>
-           <Button id="break-decrement" onClick={handleDecrementTimer}>
+          </Container>
+          <Button id="break-decrement" onClick={handleDecrementTimer}>
             ᗐ
-           </Button>
-           <Button id="break-increment" onClick={handleIncrementTimer}>
+          </Button>
+          <Button id="break-increment" onClick={handleIncrementTimer}>
             ᗑ
-           </Button>
+          </Button>
           <Container id="session-label" className="session-label">
             Session Length
           </Container>
@@ -220,7 +214,7 @@ const App = () => {
               className="animated-timer-wrap"
             >
               <CountdownCircleTimer
-                colors={[ '#32d3a3','#ff0000']}
+                colors={['#32d3a3', '#ff0000']}
                 colorsTime={[animationDuration, 5, 0]}
                 isSmoothColorTransition={false}
                 size={300}
