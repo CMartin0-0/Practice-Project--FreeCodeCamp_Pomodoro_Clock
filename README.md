@@ -1,37 +1,105 @@
-# FreeCodeCamp 25 + 5 Clock 
-
-### My solution for the [FCC 25 + 5 Clock](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-25--5-clock) Project. Check out the full working project [here](https://fcc-25-5-clock-seven.vercel.app/).
-
-#
-Objective: Build an app that is functionally similar to this: 
-https://25--5-clock.freecodecamp.rocks
 
 
-Fulfill the below user stories and get all of the tests to pass. 
-Use whichever libraries or APIs you need.
-Give it your own personal style.
+# FCC 25 + 5 Clock
+
+This is my solution to the freeCodeCamp [25 + 5 Clock](https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-25-5-clock) project. The goal was to create a Pomodoro timer that allows users to set custom session and break lengths, start/pause/reset the timer, and automatically switch between session and break modes.
+
+🔗 Live Demo: [https://fcc-25-5-clock-seven.vercel.app](https://fcc-25-5-clock-seven.vercel.app)
+
+---
+
+## 🛠️ Technologies Used
+
+* **React** – for building the user interface
+* **TypeScript** – for type safety
+* **Vite** – for fast development and build processes
+* **CSS** – for styling the application
+
+---
+
+## ✅ Features
+
+* Set custom session and break lengths
+* Start, pause, and reset the timer
+* Automatically switch between session and break modes
+* Play a sound when switching between modes
+* Responsive design for mobile and desktop views
+
+---
+
+## 📦 Installation
+
+To run this project locally:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/CMartin0-0/fcc-25-5-clock.git
+   ```
 
 
-You can use any mix of HTML, JavaScript, CSS, Bootstrap, SASS, React, Redux,\and jQuery to complete this project.
-You should use a frontend framework (like React for example) because this section is about learning frontend frameworks. 
-Additional technologies not listed above are not recommended and using them is at your own risk. 
-We are looking at supporting other frontend frameworks like Angular and Vue, but they are not currently supported. 
-We will accept and try to fix all issue reports that use the suggested technology stack for this project.
- Happy coding!
-#
 
-Any feedback/suggestions are always welcome and appreciated :)
+2. Navigate into the project directory:
+
+   ```bash
+   cd fcc-25-5-clock
+   ```
 
 
 
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
 
 
 
 
+---
+
+## ✅ Project Requirements
+
+1. I can set the session length to any value between 1 and 60 minutes.
+2. I can set the break length to any value between 1 and 60 minutes.
+3. I can start, pause, and reset the timer.
+4. I can switch between session and break modes.
+5. I can see the time remaining for the current session or break.
+6. I can adjust the session and break lengths while the timer is running.
+7. I can hear a sound when switching between session and break modes.
+
+---
+
+## 🎨 Design & Styling
+
+The application features a clean and minimalistic design, with a focus on usability. It is fully responsive, ensuring a seamless experience across devices. The timer's font is monospace to maintain consistent alignment of digits.
+
+---
+
+## 🧪 Testing
+
+This project includes unit tests to verify the functionality of key components and logic. Tests can be run using the following command:
+
+```bash
+npm test
+```
 
 
 
+---
 
+## 📄 License
 
+This project is licensed under the MIT License.
 
+---
 
+Feel free to reach out if you have any questions or feedback!
