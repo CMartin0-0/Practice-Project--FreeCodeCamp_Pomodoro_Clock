@@ -42,7 +42,7 @@ To run this project locally:
 2. Navigate into the project directory:
 
    ```bash
-   cd fcc-25-5-clock
+   cd Practice-Project--FreeCodeCamp_Pomodoro_Clock
    ```
 
 
