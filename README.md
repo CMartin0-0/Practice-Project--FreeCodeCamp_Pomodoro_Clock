@@ -84,22 +84,4 @@ The application features a clean and minimalistic design, with a focus on usabil
 
 ---
 
-## 🧪 Testing
-
-This project includes unit tests to verify the functionality of key components and logic. Tests can be run using the following command:
-
-```bash
-npm test
-```
-
-
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
 Feel free to reach out if you have any questions or feedback!
