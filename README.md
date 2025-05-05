@@ -6,7 +6,6 @@ This is my solution to the freeCodeCamp [25 + 5 Clock](https://www.freecodecamp.
 
 🔗 Live Demo: [https://fcc-25-5-clock-seven.vercel.app](https://fcc-25-5-clock-seven.vercel.app)
 
----
 
 ## 🛠️ Technologies Used
 
@@ -15,7 +14,6 @@ This is my solution to the freeCodeCamp [25 + 5 Clock](https://www.freecodecamp.
 * **Vite** – for fast development and build processes
 * **CSS** – for styling the application
 
----
 
 ## ✅ Features
 
@@ -25,7 +23,7 @@ This is my solution to the freeCodeCamp [25 + 5 Clock](https://www.freecodecamp.
 * Play a sound when switching between modes
 * Responsive design for mobile and desktop views
 
----
+
 
 ## 📦 Installation
 
@@ -64,7 +62,7 @@ To run this project locally:
 
 
 
----
+
 
 ## ✅ Project Requirements
 
@@ -76,7 +74,7 @@ To run this project locally:
 6. I can adjust the session and break lengths while the timer is running.
 7. I can hear a sound when switching between session and break modes.
 
----
+
 
 ## 🎨 Design & Styling
 
