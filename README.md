@@ -34,7 +34,7 @@ To run this project locally:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/CMartin0-0/fcc-25-5-clock.git
+   git clone https://github.com/CMartin0-0/Practice-Project--FreeCodeCamp_Pomodoro_Clock.git
    ```
 
 
